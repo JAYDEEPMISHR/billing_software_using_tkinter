@@ -29,8 +29,32 @@ class Bill_App:
         Cust_Farame=LabelFrame(Main_frame,text="Customer", font=("Cosmic Sans",12,"bold"),bg="white",fg="red")
         Cust_Farame.place(x=10,y=5,width=350,height=140)
 
+        # For Mobile (In Customer_label Frame)
         self.lb1_mob=Label(Cust_Farame,text="Mobile No.",font=("Cosmic Sans",12,"bold"),bg="white")
-        self.lb1_mob.grid(row=0,column=0)
+        self.lb1_mob.grid(row=0,column=0,stick=W,padx=5,pady=2)
+
+        self.entry_mob=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=24)
+        self.entry_mob.grid(row=0,column=1)
+
+        # For Customer name(In Customer_label Frame)
+        self.lb1Custname=Label(Cust_Farame,text="Customer Name",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
+        self.lb1Custname.grid(row=1,column=0,stick=W,padx=5,pady=2)
+
+        self.txtCustname=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=24)
+        self.txtCustname.grid(row=1,column=1,sticky=W,padx=5,pady=2)
+
+        # For Email field(In Customer_label Frame)
+        self.lblEmail=Label(Cust_Farame,text="Email",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
+        self.lblEmail.grid(row=2,column=0,stick=W,padx=5,pady=2)
+
+        self.txtEmail=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=24)
+        self.txtEmail.grid(row=2,column=1,sticky=W,padx=5,pady=2)
+
+
+         # Product_Label Frame
+
+        Cust_Farame=LabelFrame(Main_frame,text="Product", font=("Cosmic Sans",12,"bold"),bg="white",fg="red")
+        Cust_Farame.place(x=370,y=5,width=500,height=140)
 
 
 if __name__ =='__main__':
