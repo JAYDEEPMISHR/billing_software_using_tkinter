@@ -53,8 +53,14 @@ class Bill_App:
 
          # Product_Label Frame
 
-        Cust_Farame=LabelFrame(Main_frame,text="Product", font=("Cosmic Sans",12,"bold"),bg="white",fg="red")
-        Cust_Farame.place(x=370,y=5,width=500,height=140)
+        Product_frame=LabelFrame(Main_frame,text="Product", font=("Cosmic Sans",12,"bold"),bg="white",fg="red")
+        Product_frame.place(x=370,y=5,width=600,height=140)
+
+        self.lblEmail=Label(Product_frame,text="Select Category",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
+        self.lblEmail.grid(row=0,column=0,stick=W,padx=5,pady=2)
+
+        self.Combo_Category=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=24,state="readonly")
+        self.Combo_Category.grid(row=0,column=1,sticky=W,padx=5,pady=2)
 
 
 if __name__ =='__main__':
