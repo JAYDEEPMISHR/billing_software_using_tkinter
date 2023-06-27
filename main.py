@@ -95,21 +95,21 @@ class Bill_App:
         MiddleFrame=Frame(Main_frame,bd=10)
         MiddleFrame.place(x=7,y=150,width=750,height=340)
 
-        # Image1
-        img=Image.open("Images/download.jpeg")
-        img=img.resize((375,340),Image.ANTIALIAS)
-        self.photoimg= ImageTk.PhotoImage(img)
+        # # Image1
+        # img=Image.open("Images/download.jpeg")
+        # img=img.resize((375,340),Image.ANTIALIAS)
+        # self.photoimg= ImageTk.PhotoImage(img)
 
-        lb1_img=Label(MiddleFrame,image=self.photoimg)
-        lb1_img.place(x=0,y=0,width=375,height=340)
+        # lb1_img=Label(MiddleFrame,image=self.photoimg)
+        # lb1_img.place(x=0,y=0,width=375,height=340)
 
-        # Image2
-        img2=Image.open("Images/download.jpeg")
-        img2=img2.resize((375,340),Image.ANTIALIAS)
-        self.photoimg2= ImageTk.PhotoImage(img2)
+        # # Image2
+        # img2=Image.open("Images/download.jpeg")
+        # img2=img2.resize((375,340),Image.ANTIALIAS)
+        # self.photoimg2= ImageTk.PhotoImage(img2)
 
-        lb1_img2=Label(MiddleFrame,image=self.photoimg2)
-        lb1_img2.place(x=375,y=0,width=375,height=340)
+        # lb1_img2=Label(MiddleFrame,image=self.photoimg2)
+        # lb1_img2.place(x=375,y=0,width=375,height=340)
 
 
 # Search
