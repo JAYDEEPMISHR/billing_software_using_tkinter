@@ -10,6 +10,19 @@ class Bill_App:
         self.root.geometry("1920x1080+0+0")
         self.root.title("Billing System")
 
+        # Product category list
+        self.Category=["Select an option","Clothing","Lifestyle","Mobiles"]
+        self.SubCatClothing=["Pant","T-shirt","Shirt"]
+        self.pant=["Levis","Spyker","Diesel","Calvin Klein","Lee"]
+        self.price_Levis=2500
+        self.prince_Spyker=2000
+        self.price_Diesel=1500
+        self.price_CalvinKlein=3000
+        self.price_Lee=2000
+        self.SubCatLifestyle=["Bath Soap","Face Cream", "Hair oil"]
+        self.SubCatMobiles=["Iphone","Samsung","Vivo","Oppo","Xiomi","Realme"]
+
+
         # Image 1
         # img=Image.open("Images/download.jpeg")
         # img=img.resize((500,130),Image.ANTIALIAS)
