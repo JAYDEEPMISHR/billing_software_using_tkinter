@@ -10,17 +10,61 @@ class Bill_App:
         self.root.geometry("1920x1080+0+0")
         self.root.title("Billing System")
 
-        # Product category list
+# Product category list
         self.Category=["Select an option","Clothing","Lifestyle","Mobiles"]
+
+        # SubCategory of clothing
         self.SubCatClothing=["Pant","T-shirt","Shirt"]
-        self.pant=["Levis","Spyker","Diesel","Calvin Klein","Lee"]
+        self.pant=["Levis","Spyker","Diesel","Calvin Klein","Lee"] # Subcategory of pant
         self.price_Levis=2500
         self.prince_Spyker=2000
         self.price_Diesel=1500
         self.price_CalvinKlein=3000
         self.price_Lee=2000
+
+       
+        self.tshirt=["Polo","Jack & Jones","Roadster"]      # Subcateogory of T-shirts
+        self.price_Polo=1500
+        self.price_JackJones=1700
+        self.price_Roadster=1650
+
+        
+        self.shirt=["Peter England","Vimal","Park evenue"]   # Subcategory of Shirt
+        self.price_peter=2100
+        self.price_vimal=1500
+        self.price_park=1760
+
+        # Sub category of lifestyle
         self.SubCatLifestyle=["Bath Soap","Face Cream", "Hair oil"]
-        self.SubCatMobiles=["Iphone","Samsung","Vivo","Oppo","Xiomi","Realme"]
+
+        self.Bath_soap=['Lifebouy','Lux','Santoor','Pears'] # Subcategory of bathsoap
+        self.price_lifebouy=50
+        self.price_lux=40
+        self.price_santoor=45
+        self.price_pears=60
+
+        self.face_cream=['Glow & Lovely','Fair & Handsome','Mama-earth']      # Subcategory of Facecream
+        self.price_glow=80
+        self.price_fair=80
+        self.price_mamaearth=100
+
+        # Sub category of Mobiles
+        self.SubCatMobiles=["Iphone","Samsung"]
+
+        self.Iphone=['Iphone X','Iphone 11', 'Iphone 12', 'Iphone 12 pro','Iphone 13']   # Subcategory of Iphone
+        self.price_IphoneX=45000
+        self.price_Iphone11=55000 
+        self.price_Iphone12=65000 
+        self.price_Iphone12pro=70000 
+        self.price_Iphone13=80000
+
+        self.Samsung=["Galaxy A21",'Galaxy F51','Galaxy A32','Z-fold']          # Subcategory of Samsung
+        self.price_GalaxyA21=25000
+        self.price_GalaxyF51=30000
+        self.price_GalaxyA32=21000
+        self.price_fold=150000
+
+
 
 
         # Image 1
@@ -69,11 +113,13 @@ class Bill_App:
         Product_frame.place(x=280,y=5,width=480,height=140)
 
         # For Category Label(In Product_label)
-        self.lblCategory=Label(Product_frame,text="Select Category",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
+        self.lblCategory=Label(Product_frame,text='Category',font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblCategory.grid(row=0,column=0,stick=W,padx=5,pady=2)
 
-        self.Combo_Category=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
+        self.Combo_Category=ttk.Combobox(Product_frame,value=self.Category,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
+        self.Combo_Category.current(0)
         self.Combo_Category.grid(row=0,column=1,sticky=W,padx=5,pady=2)
+        self.Combo_Category.bind("<<ComboboxSelected>>",self.Categories)
 
         # For Subcategory label(In Product_label)
         self.lblSubCategory=Label(Product_frame,text="Sub Category",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
@@ -81,6 +127,7 @@ class Bill_App:
 
         self.ComboSubCategory=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboSubCategory.grid(row=1,column=1,sticky=W,padx=5,pady=2)
+        self.ComboSubCategory.bind("<<ComboboxSelected>>",self.Product_add)
 
         # For Product name(In Product_label)
         self.lblProduct=Label(Product_frame,text="Product name",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
@@ -196,6 +243,40 @@ class Bill_App:
 
         self.BtnExit=Button(Btn_Frame,height=2,text="Exit",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnExit.grid(row=0,column=5)
+
+
+
+    def Categories(self,event=""):
+        if self.Combo_Category.get()=="Clothing":
+            self.ComboSubCategory.config(value=self.SubCatClothing)
+            self.ComboSubCategory.current(0)
+
+        if self.Combo_Category.get()=="Lifestyle":
+            self.ComboSubCategory.config(value=self.SubCatLifestyle)
+            self.ComboSubCategory.current(0)
+
+        if self.Combo_Category.get()=="Mobiles":
+            self.ComboSubCategory.config(value=self.SubCatMobiles)
+            self.ComboSubCategory.current(0)
+
+    def Product_add(self,event=""):
+        if self.ComboSubCategory.get()=="Pant":
+            self.ComboProduct.config(value=self.pant)
+            self.ComboProduct.current(0)
+
+        if self.ComboSubCategory.get()=="T-shirt":
+            self.ComboProduct.config(value=self.tshirt)
+            self.ComboProduct.current(1)
+
+        if self.ComboSubCategory.get()=="Shirt":
+            self.ComboProduct.config(value=self.shirt)
+            self.ComboProduct.current(2)
+
+
+
+
+
+
 
 
 if __name__ =='__main__':
