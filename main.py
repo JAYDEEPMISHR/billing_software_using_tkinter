@@ -35,7 +35,7 @@ class Bill_App:
         self.price_park=1760
 
         # Sub category of lifestyle
-        self.SubCatLifestyle=["Bath Soap","Face Cream", "Hair oil"]
+        self.SubCatLifestyle=["Bath Soap","Face Cream"]
 
         self.Bath_soap=['Lifebouy','Lux','Santoor','Pears'] # Subcategory of bathsoap
         self.price_lifebouy=50
@@ -125,7 +125,7 @@ class Bill_App:
         self.lblSubCategory=Label(Product_frame,text="Sub Category",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblSubCategory.grid(row=1,column=0,stick=W,padx=5,pady=2)
 
-        self.ComboSubCategory=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
+        self.ComboSubCategory=ttk.Combobox(Product_frame,value=[""],font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboSubCategory.grid(row=1,column=1,sticky=W,padx=5,pady=2)
         self.ComboSubCategory.bind("<<ComboboxSelected>>",self.Product_add)
 
@@ -133,14 +133,14 @@ class Bill_App:
         self.lblProduct=Label(Product_frame,text="Product name",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblProduct.grid(row=2,column=0,stick=W,padx=5,pady=2)
 
-        self.ComboProduct=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12)
+        self.ComboProduct=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboProduct.grid(row=2,column=1,sticky=W,padx=5,pady=2)
 
         # For Price(In Product_label)
         self.lblPrice=Label(Product_frame,text="Price",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblPrice.grid(row=0,column=2,stick=W,padx=5,pady=2)
 
-        self.ComboPrice=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=7)
+        self.ComboPrice=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=7,state="readonly")
         self.ComboPrice.grid(row=0,column=3,sticky=W,padx=5,pady=2)
 
         # For Quantity(In Product_label)
@@ -266,11 +266,34 @@ class Bill_App:
 
         if self.ComboSubCategory.get()=="T-shirt":
             self.ComboProduct.config(value=self.tshirt)
-            self.ComboProduct.current(1)
+            self.ComboProduct.current(0)
 
         if self.ComboSubCategory.get()=="Shirt":
             self.ComboProduct.config(value=self.shirt)
-            self.ComboProduct.current(2)
+            self.ComboProduct.current(0)
+
+        # Lifestyle
+ 
+        if self.ComboSubCategory.get()=="Bath Soap":
+            self.ComboProduct.config(value=self.Bath_soap)
+            self.ComboProduct.current(0)
+
+        if self.ComboSubCategory.get()=="Face Cream":
+            self.ComboProduct.config(value=self.face_cream)
+            self.ComboProduct.current(0)
+        
+        # Mobile
+        # "Iphone","Samsung"
+        # self.Iphone,self.Samsung
+        
+        if self.ComboSubCategory.get()=="Iphone":
+            self.ComboProduct.config(value=self.Iphone)
+            self.ComboProduct.current(0)
+
+        if self.ComboSubCategory.get()=="Samsung":
+            self.ComboProduct.config(value=self.Samsung)
+            self.ComboProduct.current(0)
+
 
 
 
