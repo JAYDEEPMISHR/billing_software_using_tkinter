@@ -107,21 +107,21 @@ class Bill_App:
         self.lb1_mob=Label(Cust_Farame,text="Mobile No.",font=("Cosmic Sans",12,"bold"),bg="white")
         self.lb1_mob.grid(row=0,column=0,stick=W,padx=5,pady=2)
 
-        self.entry_mob=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=20)
+        self.entry_mob=ttk.Entry(Cust_Farame,textvariable=self.c_phon,font=("Cosmic Sans",10,"bold"),width=20)
         self.entry_mob.grid(row=0,column=1)
 
         # For Customer name(In Customer_label Frame)
         self.lb1Custname=Label(Cust_Farame,text="Name",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lb1Custname.grid(row=1,column=0,stick=W,padx=5,pady=2)
 
-        self.txtCustname=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=20)
+        self.txtCustname=ttk.Entry(Cust_Farame,textvariable=self.c_name,font=("Cosmic Sans",10,"bold"),width=20)
         self.txtCustname.grid(row=1,column=1,sticky=W,padx=5,pady=2)
 
         # For Email field(In Customer_label Frame)
         self.lblEmail=Label(Cust_Farame,text="Email",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblEmail.grid(row=2,column=0,stick=W,padx=5,pady=2)
 
-        self.txtEmail=ttk.Entry(Cust_Farame,font=("Cosmic Sans",10,"bold"),width=20)
+        self.txtEmail=ttk.Entry(Cust_Farame,textvariable=self.c_email,font=("Cosmic Sans",10,"bold"),width=20)
         self.txtEmail.grid(row=2,column=1,sticky=W,padx=5,pady=2)
 
 
@@ -150,7 +150,7 @@ class Bill_App:
         self.lblProduct=Label(Product_frame,text="Product name",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblProduct.grid(row=2,column=0,stick=W,padx=5,pady=2)
 
-        self.ComboProduct=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
+        self.ComboProduct=ttk.Combobox(Product_frame,textvariable=self.product,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboProduct.grid(row=2,column=1,sticky=W,padx=5,pady=2)
         self.ComboProduct.bind("<<ComboboxSelected>>",self.price)
 
@@ -165,7 +165,7 @@ class Bill_App:
         self.lblQty=Label(Product_frame,text="Quantity",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblQty.grid(row=1,column=2,stick=W,padx=5,pady=2)
 
-        self.ComboQty=ttk.Entry(Product_frame,font=("Cosmic Sans",12,"bold"),width=9)
+        self.ComboQty=ttk.Entry(Product_frame,textvariable=self.qty,font=("Cosmic Sans",12,"bold"),width=9)
         self.ComboQty.grid(row=1,column=3,sticky=W,padx=5,pady=2)
 
 # Middle frame for pictures
@@ -197,7 +197,7 @@ class Bill_App:
         self.lblBill=Label(Search_Frame,text="Bill Number",font=("Cosmic Sans",12,"bold"),fg="red",bg="white",bd=4)
         self.lblBill.grid(row=0,column=0,stick=W,padx=1)
 
-        self.txtSearch=ttk.Entry(Search_Frame,font=("Cosmic Sans",10,"bold"),width=20)
+        self.txtSearch=ttk.Entry(Search_Frame,textvariable=self.search_bill,font=("Cosmic Sans",10,"bold"),width=20)
         self.txtSearch.grid(row=0,column=1,sticky=W,padx=2)
 
         self.BtnSearch=Button(Search_Frame,text="Search",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
