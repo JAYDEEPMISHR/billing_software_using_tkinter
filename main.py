@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk  # pip install pillow
-
+import random
 
 
 class Bill_App:
@@ -16,6 +16,8 @@ class Bill_App:
         self.c_name=StringVar()
         self.c_phon=StringVar()
         self.bill_no=StringVar()
+        a=random.randint(1000,9999)
+        self.bill_no.set(a)
         self.c_email=StringVar()
         self.search_bill=StringVar()
         self.product=StringVar()
@@ -150,12 +152,13 @@ class Bill_App:
 
         self.ComboProduct=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboProduct.grid(row=2,column=1,sticky=W,padx=5,pady=2)
+        self.ComboProduct.bind("<<ComboboxSelected>>",self.price)
 
         # For Price(In Product_label)
         self.lblPrice=Label(Product_frame,text="Price",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblPrice.grid(row=0,column=2,stick=W,padx=5,pady=2)
 
-        self.ComboPrice=ttk.Combobox(Product_frame,font=("Cosmic Sans",12,"bold"),width=7,state="readonly")
+        self.ComboPrice=ttk.Combobox(Product_frame,textvariable=self.prices,font=("Cosmic Sans",12,"bold"),width=7,state="readonly")
         self.ComboPrice.grid(row=0,column=3,sticky=W,padx=5,pady=2)
 
         # For Quantity(In Product_label)
@@ -309,6 +312,19 @@ class Bill_App:
             self.ComboProduct.config(value=self.Samsung)
             self.ComboProduct.current(0)
 
+    def price(self,event=""):
+        # for pant
+        # ["Levis","Spyker","Diesel","Calvin Klein","Lee"] # Subcategory of pant
+        # self.price_Levis=2500
+        # self.prince_Spyker=2000
+        # self.price_Diesel=1500
+        # self.price_CalvinKlein=3000
+        # self.price_Lee=2000
+
+        if self.ComboPrice.get()=="Levis":
+            self.ComboPrice.config(value=self.price_Levis)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
 
 
 
