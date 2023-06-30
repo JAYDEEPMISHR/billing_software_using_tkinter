@@ -10,6 +10,21 @@ class Bill_App:
         self.root.geometry("1920x1080+0+0")
         self.root.title("Billing System")
 
+
+# ================ Variables for billing ================
+
+        self.c_name=StringVar()
+        self.c_phon=StringVar()
+        self.bill_no=StringVar()
+        self.c_email=StringVar()
+        self.search_bill=StringVar()
+        self.product=StringVar()
+        self.prices=IntVar()
+        self.qty=IntVar()
+        self.sub_total=StringVar()
+        self.tax_input=StringVar()
+        self.total=StringVar()    
+
 # Product category list
         self.Category=["Select an option","Clothing","Lifestyle","Mobiles"]
 
