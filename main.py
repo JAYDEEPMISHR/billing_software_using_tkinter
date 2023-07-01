@@ -152,7 +152,7 @@ class Bill_App:
 
         self.ComboProduct=ttk.Combobox(Product_frame,textvariable=self.product,font=("Cosmic Sans",12,"bold"),width=12,state="readonly")
         self.ComboProduct.grid(row=2,column=1,sticky=W,padx=5,pady=2)
-        self.ComboProduct.bind("<<ComboboxSelected>>",self.price)
+        self.ComboProduct.bind("<<ComboboxSelected>>",self.Price)
 
         # For Price(In Product_label)
         self.lblPrice=Label(Product_frame,text="Price",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
@@ -312,7 +312,7 @@ class Bill_App:
             self.ComboProduct.config(value=self.Samsung)
             self.ComboProduct.current(0)
 
-    def price(self,event=""):
+    def Price(self,event=""):
         # for pant
         # ["Levis","Spyker","Diesel","Calvin Klein","Lee"] # Subcategory of pant
         # self.price_Levis=2500
