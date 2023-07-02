@@ -314,13 +314,6 @@ class Bill_App:
 
     def Price(self,event=""):
         # for pant
-        # ["Levis","Spyker","Diesel","Calvin Klein","Lee"] # Subcategory of pant
-        # self.price_Levis=2500
-        # self.prince_Spyker=2000
-        # self.price_Diesel=1500
-        # self.price_CalvinKlein=3000
-        # self.price_Lee=2000
-
         if self.ComboProduct.get()=="Levis":
             self.ComboPrice.config(value=self.price_Levis)
             self.ComboPrice.current(0)
@@ -346,7 +339,38 @@ class Bill_App:
             self.ComboPrice.current(0)
             self.qty.set(1)
 
+        # For T-shirt
 
+        if self.ComboProduct.get()=="Polo":
+            self.ComboPrice.config(value=self.price_Polo)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Jack & Jones":
+            self.ComboPrice.config(value=self.price_JackJones)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Roadster":
+            self.ComboPrice.config(value=self.price_Roadster)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        # For Shirt
+        if self.ComboProduct.get()=="Peter England":
+            self.ComboPrice.config(value=self.price_peter)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Vimal":
+            self.ComboPrice.config(value=self.price_vimal)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Park evenue":
+            self.ComboPrice.config(value=self.self.price_park)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
 
 
 
