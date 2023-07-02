@@ -371,6 +371,52 @@ class Bill_App:
             self.ComboPrice.config(value=self.self.price_park)
             self.ComboPrice.current(0)
             self.qty.set(1)
+        # For Bathsoap
+        # self.Bath_soap=['Lifebouy','Lux','Santoor','Pears'] # Subcategory of bathsoap
+        # self.price_lifebouy=50
+        # self.price_lux=40
+        # self.price_santoor=45
+        # self.price_pears=60
+        if self.ComboProduct.get()=="Lifebouy":
+            self.ComboPrice.config(value=self.price_lifebouy)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Vimal":
+            self.ComboPrice.config(value=self.price_vimal)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Park evenue":
+            self.ComboPrice.config(value=self.self.price_park)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Park evenue":
+            self.ComboPrice.config(value=self.self.price_park)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+
+        # self.face_cream=['Glow & Lovely','Fair & Handsome','Mama-earth']      # Subcategory of Facecream
+        # self.price_glow=80
+        # self.price_fair=80
+        # self.price_mamaearth=100
+
+        # # Sub category of Mobiles
+        # self.SubCatMobiles=["Iphone","Samsung"]
+
+        # self.Iphone=['Iphone X','Iphone 11', 'Iphone 12', 'Iphone 12 pro','Iphone 13']   # Subcategory of Iphone
+        # self.price_IphoneX=45000
+        # self.price_Iphone11=55000 
+        # self.price_Iphone12=65000 
+        # self.price_Iphone12pro=70000 
+        # self.price_Iphone13=80000
+
+        # self.Samsung=["Galaxy A21",'Galaxy F51','Galaxy A32','Z-fold']          # Subcategory of Samsung
+        # self.price_GalaxyA21=25000
+        # self.price_GalaxyF51=30000
+        # self.price_GalaxyA32=21000
+        # self.price_fold=150000
 
 
 
