@@ -321,8 +321,28 @@ class Bill_App:
         # self.price_CalvinKlein=3000
         # self.price_Lee=2000
 
-        if self.ComboPrice.get()=="Levis":
+        if self.ComboProduct.get()=="Levis":
             self.ComboPrice.config(value=self.price_Levis)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+
+        if self.ComboProduct.get()=="Spyker":
+            self.ComboPrice.config(value=self.prince_Spyker)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+
+        if self.ComboProduct.get()=="Diesel":
+            self.ComboPrice.config(value=self.price_Diesel)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Calvin Klein":
+            self.ComboPrice.config(value=self.price_CalvinKlein)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+    
+        if self.ComboProduct.get()=="Lee":
+            self.ComboPrice.config(value=self.price_Lee)
             self.ComboPrice.current(0)
             self.qty.set(1)
 
