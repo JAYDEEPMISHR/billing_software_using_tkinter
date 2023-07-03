@@ -368,55 +368,96 @@ class Bill_App:
             self.qty.set(1)
         
         if self.ComboProduct.get()=="Park evenue":
-            self.ComboPrice.config(value=self.self.price_park)
+            self.ComboPrice.config(value=self.price_park)
             self.ComboPrice.current(0)
             self.qty.set(1)
+
         # For Bathsoap
-        # self.Bath_soap=['Lifebouy','Lux','Santoor','Pears'] # Subcategory of bathsoap
-        # self.price_lifebouy=50
-        # self.price_lux=40
-        # self.price_santoor=45
-        # self.price_pears=60
         if self.ComboProduct.get()=="Lifebouy":
             self.ComboPrice.config(value=self.price_lifebouy)
             self.ComboPrice.current(0)
             self.qty.set(1)
         
-        if self.ComboProduct.get()=="Vimal":
-            self.ComboPrice.config(value=self.price_vimal)
+        if self.ComboProduct.get()=="Lux":
+            self.ComboPrice.config(value=self.price_lux)
             self.ComboPrice.current(0)
             self.qty.set(1)
         
-        if self.ComboProduct.get()=="Park evenue":
-            self.ComboPrice.config(value=self.self.price_park)
+        if self.ComboProduct.get()=="Santoor":
+            self.ComboPrice.config(value=self.price_santoor)
             self.ComboPrice.current(0)
             self.qty.set(1)
         
-        if self.ComboProduct.get()=="Park evenue":
-            self.ComboPrice.config(value=self.self.price_park)
+        if self.ComboProduct.get()=="Pears":
+            self.ComboPrice.config(value=self.price_pears)
             self.ComboPrice.current(0)
             self.qty.set(1)
 
-        # self.face_cream=['Glow & Lovely','Fair & Handsome','Mama-earth']      # Subcategory of Facecream
-        # self.price_glow=80
-        # self.price_fair=80
-        # self.price_mamaearth=100
+        # For Face_cream
+        if self.ComboProduct.get()=="Glow & Lovely":
+            self.ComboPrice.config(value=self.price_glow)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Fair & Handsome":
+            self.ComboPrice.config(value=self.price_fair)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Mama-earth":
+            self.ComboPrice.config(value=self.price_mamaearth)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
 
-        # # Sub category of Mobiles
-        # self.SubCatMobiles=["Iphone","Samsung"]
+        # For Mobile
+        if self.ComboProduct.get()=="Iphone X":
+            self.ComboPrice.config(value=self.price_IphoneX)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Iphone 11":
+            self.ComboPrice.config(value=self.price_Iphone11)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Iphone 12":
+            self.ComboPrice.config(value=self.price_Iphone12)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Iphone 12 pro":
+            self.ComboPrice.config(value=self.price_Iphone12pro)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
 
-        # self.Iphone=['Iphone X','Iphone 11', 'Iphone 12', 'Iphone 12 pro','Iphone 13']   # Subcategory of Iphone
-        # self.price_IphoneX=45000
-        # self.price_Iphone11=55000 
-        # self.price_Iphone12=65000 
-        # self.price_Iphone12pro=70000 
-        # self.price_Iphone13=80000
-
+        if self.ComboProduct.get()=="Iphone 13":
+            self.ComboPrice.config(value=self.price_Iphone13)
+            self.ComboPrice.current(0)
+            self.qty.set(1)   
         # self.Samsung=["Galaxy A21",'Galaxy F51','Galaxy A32','Z-fold']          # Subcategory of Samsung
         # self.price_GalaxyA21=25000
         # self.price_GalaxyF51=30000
         # self.price_GalaxyA32=21000
         # self.price_fold=150000
+        if self.ComboProduct.get()=="Galaxy A21":
+            self.ComboPrice.config(value=self.price_GalaxyA21)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Galaxy F51":
+            self.ComboPrice.config(value=self.price_GalaxyF51)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Galaxy A32":
+            self.ComboPrice.config(value=self.price_GalaxyA32)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
+        
+        if self.ComboProduct.get()=="Z-fold":
+            self.ComboPrice.config(value=self.price_fold)
+            self.ComboPrice.current(0)
+            self.qty.set(1)
 
 
 
