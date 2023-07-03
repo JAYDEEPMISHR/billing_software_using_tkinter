@@ -261,6 +261,20 @@ class Bill_App:
 
         self.BtnExit=Button(Btn_Frame,height=2,text="Exit",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnExit.grid(row=0,column=5)
+        self.welcome()
+
+    def welcome(self):
+        self.textarea.delete(1.0,END)
+        self.textarea.insert(END,"\t\t Welcome to Minimart")
+        self.textarea.insert(END,f"\n Bill Number:{self.bill_no.get()}")
+        self.textarea.insert(END,f"\n Customer Name:{self.c_name.get()}")
+        self.textarea.insert(END,f"\n Phone Number:{self.c_phon.get()}")
+        self.textarea.insert(END,f"\n Customer Email:{self.c_email.get()}")
+
+        self.textarea.insert(END,"\n==================================================")
+        self.textarea.insert(END,f"\n Products\t\t\tQty\t\tPrice")
+        self.textarea.insert(END,"\n==================================================")
+
 
 
 
@@ -434,11 +448,7 @@ class Bill_App:
             self.ComboPrice.config(value=self.price_Iphone13)
             self.ComboPrice.current(0)
             self.qty.set(1)   
-        # self.Samsung=["Galaxy A21",'Galaxy F51','Galaxy A32','Z-fold']          # Subcategory of Samsung
-        # self.price_GalaxyA21=25000
-        # self.price_GalaxyF51=30000
-        # self.price_GalaxyA32=21000
-        # self.price_fold=150000
+        
         if self.ComboProduct.get()=="Galaxy A21":
             self.ComboPrice.config(value=self.price_GalaxyA21)
             self.ComboPrice.current(0)
