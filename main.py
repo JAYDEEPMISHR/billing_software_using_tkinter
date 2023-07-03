@@ -263,6 +263,8 @@ class Bill_App:
         self.BtnExit.grid(row=0,column=5)
         self.welcome()
 
+    # ======================================== Function Declaration ================================================
+
     def welcome(self):
         self.textarea.delete(1.0,END)
         self.textarea.insert(END,"\t\t Welcome to Minimart")
