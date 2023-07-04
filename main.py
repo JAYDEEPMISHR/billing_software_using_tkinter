@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk  # pip install pillow
 import random
+from tkinter import messagebox
 
 
 class Bill_App:
@@ -222,21 +223,21 @@ class Bill_App:
         self.lblSubTotal=Label(Bottom_Frame,text="Subtotal",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblSubTotal.grid(row=0,column=0,stick=W,padx=5,pady=2)
 
-        self.EntrySubTotal=ttk.Entry(Bottom_Frame,font=("Cosmic Sans",12,"bold"),width=9)
+        self.EntrySubTotal=ttk.Entry(Bottom_Frame,textvariable=self.sub_total,font=("Cosmic Sans",12,"bold"),width=9)
         self.EntrySubTotal.grid(row=0,column=1,sticky=W,padx=5,pady=2)
 
         # For Government tax(In Bottom Counter_label)
         self.lbl_tax=Label(Bottom_Frame,text="Gov Tax",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lbl_tax.grid(row=1,column=0,stick=W,padx=5,pady=2)
 
-        self.txt_tax=ttk.Entry(Bottom_Frame,font=("Cosmic Sans",12,"bold"),width=9)
+        self.txt_tax=ttk.Entry(Bottom_Frame,textvariable=self.tax_input,font=("Cosmic Sans",12,"bold"),width=9)
         self.txt_tax.grid(row=1,column=1,sticky=W,padx=5,pady=2)
 
         # For Amount total with GST(In Bottom Counter_label)
         self.lblAmountTotal=Label(Bottom_Frame,text="Total",font=("Cosmic Sans",12,"bold"),bg="white",bd=4)
         self.lblAmountTotal.grid(row=2,column=0,stick=W,padx=5,pady=2)
 
-        self.txtAmountTotal=ttk.Entry(Bottom_Frame,font=("Cosmic Sans",12,"bold"),width=9)
+        self.txtAmountTotal=ttk.Entry(Bottom_Frame,textvariable=self.total,font=("Cosmic Sans",12,"bold"),width=9)
         self.txtAmountTotal.grid(row=2,column=1,sticky=W,padx=5,pady=2)
 
 # Button Frame
@@ -244,10 +245,10 @@ class Bill_App:
         Btn_Frame.place(x=320,y=0)
 
         # Buttons
-        self.BtnAddToCart=Button(Btn_Frame,height=2,text="Add To Cart",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
+        self.BtnAddToCart=Button(Btn_Frame,command=self.AddItem,height=2,text="Add To Cart",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnAddToCart.grid(row=0,column=0)
 
-        self.BtnGenerate_bill=Button(Btn_Frame,height=2,text="Generate Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
+        self.BtnGenerate_bill=Button(Btn_Frame,command=self.gen_bill,height=2,text="Generate Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnGenerate_bill.grid(row=0,column=1)
 
         self.BtnSave=Button(Btn_Frame,height=2,text="Save Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
@@ -263,7 +264,32 @@ class Bill_App:
         self.BtnExit.grid(row=0,column=5)
         self.welcome()
 
+        self.l=[]
     # ======================================== Function Declaration ================================================
+    def gen_bill(self):
+        if self.product.get()=="":
+            messagebox.showerror("Error","Please Add some Products in cart")
+        else:
+            text=self.textarea.get(10.0,(10.0+float(len(self.l))))
+            self.welcome()
+            self.textarea.insert(END,text)
+            self.textarea.insert(END,"\n==================================================")
+            self.textarea.insert(END,f"\n Sub Total : \t\t\t{self.sub_total.get()}")
+            self.textarea.insert(END,f"\n Tax Amount : \t\t\t{self.tax_input.get()}")
+            self.textarea.insert(END,f"\n Total Amount : \t\t\t{self.total.get()}")
+
+    def AddItem(self):
+        Tax=1
+        self.n=self.prices.get()
+        self.m=self.qty.get()*self.n
+        self.l.append(self.m)
+        if self.product.get()=="":
+            messagebox.showerror("Error","Please select Product")
+        else:
+            self.textarea.insert(END,f"\n {self.product.get()}\t\t\t{self.qty.get()}\t\t{self.m}")
+            self.sub_total.set(str('Rs.%.2f'%(sum(self.l))))
+            self.tax_input.set(str('Rs.%.2f'%((((sum(self.l)) - (self.prices.get()))*Tax)/100)))
+            self.total.set(str('Rs.%.2f'%(((sum(self.l)) + ((((sum(self.l)) - (self.prices.get()))*Tax)/100)))))
 
     def welcome(self):
         self.textarea.delete(1.0,END)
@@ -276,9 +302,6 @@ class Bill_App:
         self.textarea.insert(END,"\n==================================================")
         self.textarea.insert(END,f"\n Products\t\t\tQty\t\tPrice")
         self.textarea.insert(END,"\n==================================================")
-
-
-
 
     def Categories(self,event=""):
         if self.Combo_Category.get()=="Clothing":
@@ -315,11 +338,8 @@ class Bill_App:
         if self.ComboSubCategory.get()=="Face Cream":
             self.ComboProduct.config(value=self.face_cream)
             self.ComboProduct.current(0)
-        
-        # Mobile
-        # "Iphone","Samsung"
-        # self.Iphone,self.Samsung
-        
+
+        # For Mobile
         if self.ComboSubCategory.get()=="Iphone":
             self.ComboProduct.config(value=self.Iphone)
             self.ComboProduct.current(0)
@@ -470,12 +490,7 @@ class Bill_App:
             self.ComboPrice.config(value=self.price_fold)
             self.ComboPrice.current(0)
             self.qty.set(1)
-
-
-
-
-
-
+    
 if __name__ =='__main__':
     root=Tk()
     obj=Bill_App(root)
