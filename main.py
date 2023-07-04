@@ -251,7 +251,7 @@ class Bill_App:
         self.BtnGenerate_bill=Button(Btn_Frame,command=self.gen_bill,height=2,text="Generate Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnGenerate_bill.grid(row=0,column=1)
 
-        self.BtnSave=Button(Btn_Frame,height=2,text="Save Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
+        self.BtnSave=Button(Btn_Frame,height=2,command=self.save_bill,text="Save Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnSave.grid(row=0,column=2)
 
         self.BtnPrint=Button(Btn_Frame,height=2,text="Print Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
@@ -290,6 +290,18 @@ class Bill_App:
             self.sub_total.set(str('Rs.%.2f'%(sum(self.l))))
             self.tax_input.set(str('Rs.%.2f'%((((sum(self.l)) - (self.prices.get()))*Tax)/100)))
             self.total.set(str('Rs.%.2f'%(((sum(self.l)) + ((((sum(self.l)) - (self.prices.get()))*Tax)/100)))))
+
+    def save_bill(self):
+        op=messagebox.askyesnocancel("Save Bill","Do you want to save this bill?")
+        if op>0:
+            self.bill_data=self.textarea.get(1.0,END)
+            f1=open('bills/'+str(self.bill_no.get())+ ".txt","w")
+            f1.write(self.bill_data)
+            op=messagebox.showinfo("Saved",f"Bill No:{self.bill_no.get()} saved successfully")
+            f1.close()
+
+
+
 
     def welcome(self):
         self.textarea.delete(1.0,END)
@@ -490,7 +502,7 @@ class Bill_App:
             self.ComboPrice.config(value=self.price_fold)
             self.ComboPrice.current(0)
             self.qty.set(1)
-    
+
 if __name__ =='__main__':
     root=Tk()
     obj=Bill_App(root)
