@@ -292,7 +292,7 @@ class Bill_App:
             self.total.set(str('Rs.%.2f'%(((sum(self.l)) + ((((sum(self.l)) - (self.prices.get()))*Tax)/100)))))
 
     def save_bill(self):
-        op=messagebox.askyesnocancel("Save Bill","Do you want to save this bill?")
+        op=messagebox.askyesno("Save Bill","Do you want to save this bill?")
         if op>0:
             self.bill_data=self.textarea.get(1.0,END)
             f1=open('bills/'+str(self.bill_no.get())+ ".txt","w")
