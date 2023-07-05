@@ -320,7 +320,7 @@ class Bill_App:
 
         self.textarea.insert(END,"\n==================================================")
         self.textarea.insert(END,f"\n Products\t\t\tQty\t\tPrice")
-        self.textarea.insert(END,"\n==================================================")
+        self.textarea.insert(END,"\n==================================================\n")
 
     def Categories(self,event=""):
         if self.Combo_Category.get()=="Clothing":
