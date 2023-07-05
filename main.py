@@ -258,7 +258,7 @@ class Bill_App:
         self.BtnPrint=Button(Btn_Frame,height=2,command=self.iprint,text="Print Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnPrint.grid(row=0,column=3)
 
-        self.BtnClear=Button(Btn_Frame,height=2,text="Clear",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
+        self.BtnClear=Button(Btn_Frame,height=2,command=self.clear,text="Clear",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnClear.grid(row=0,column=4)
 
         self.BtnExit=Button(Btn_Frame,height=2,text="Exit",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
@@ -270,6 +270,19 @@ class Bill_App:
 # ==============================================  User Interface Part End ===========================================================
 
 # ==============================================   Function Declaration   ===========================================================
+
+    def welcome(self):
+        self.textarea.delete(1.0,END)
+        self.textarea.insert(END,"\t\t Welcome to Minimart")
+        self.textarea.insert(END,f"\n Bill Number:{self.bill_no.get()}")
+        self.textarea.insert(END,f"\n Customer Name:{self.c_name.get()}")
+        self.textarea.insert(END,f"\n Phone Number:{self.c_phon.get()}")
+        self.textarea.insert(END,f"\n Customer Email:{self.c_email.get()}")
+
+        self.textarea.insert(END,"\n==================================================")
+        self.textarea.insert(END,f"\n Products\t\t\tQty\t\tPrice")
+        self.textarea.insert(END,"\n==================================================\n")
+
     def gen_bill(self):
         if self.product.get()=="":
             messagebox.showerror("Error","Please Add some Products in cart")
@@ -310,17 +323,24 @@ class Bill_App:
         open(filename,'w').write(q)
         os.startfile(filename,'print')
 
-    def welcome(self):
+    def clear(self):
         self.textarea.delete(1.0,END)
-        self.textarea.insert(END,"\t\t Welcome to Minimart")
-        self.textarea.insert(END,f"\n Bill Number:{self.bill_no.get()}")
-        self.textarea.insert(END,f"\n Customer Name:{self.c_name.get()}")
-        self.textarea.insert(END,f"\n Phone Number:{self.c_phon.get()}")
-        self.textarea.insert(END,f"\n Customer Email:{self.c_email.get()}")
+        self.c_name.set("")
+        self.c_phon.set("")
+        self.c_email.set("")
+        x=random.randint(1000,9999)
+        self.bill_no.set(str(x))
+        self.search_bill.set()
+        self.product.set("")
+        self.prices.set(0)
+        self.qty.set(0)
+        self.l=[0]
+        self.total.set("")
+        self.sub_total.set("")
+        self.tax_input.set('')
+        self.welcome()
 
-        self.textarea.insert(END,"\n==================================================")
-        self.textarea.insert(END,f"\n Products\t\t\tQty\t\tPrice")
-        self.textarea.insert(END,"\n==================================================\n")
+    
 
     def Categories(self,event=""):
         if self.Combo_Category.get()=="Clothing":
