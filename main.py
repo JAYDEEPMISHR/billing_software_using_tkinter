@@ -1,8 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk  # pip install pillow
-import random
+import random,os
 from tkinter import messagebox
+import tempfile
 
 
 class Bill_App:
@@ -84,7 +85,7 @@ class Bill_App:
 
 
 
-
+# =================================================  User inteface for Software  ======================================================== 
         # Image 1
         # img=Image.open("Images/download.jpeg")
         # img=img.resize((500,130),Image.ANTIALIAS)
@@ -254,7 +255,7 @@ class Bill_App:
         self.BtnSave=Button(Btn_Frame,height=2,command=self.save_bill,text="Save Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnSave.grid(row=0,column=2)
 
-        self.BtnPrint=Button(Btn_Frame,height=2,text="Print Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
+        self.BtnPrint=Button(Btn_Frame,height=2,command=self.iprint,text="Print Bill",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
         self.BtnPrint.grid(row=0,column=3)
 
         self.BtnClear=Button(Btn_Frame,height=2,text="Clear",font=("Cosmic Sans",12,"bold"), bg="orangered", fg="white",width=13,cursor="hand2")
@@ -265,7 +266,10 @@ class Bill_App:
         self.welcome()
 
         self.l=[]
-    # ======================================== Function Declaration ================================================
+
+# ==============================================  User Interface Part End ===========================================================
+
+# ==============================================   Function Declaration   ===========================================================
     def gen_bill(self):
         if self.product.get()=="":
             messagebox.showerror("Error","Please Add some Products in cart")
@@ -300,8 +304,11 @@ class Bill_App:
             op=messagebox.showinfo("Saved",f"Bill No:{self.bill_no.get()} saved successfully")
             f1.close()
 
-
-
+    def iprint(self):
+        q=self.textarea.get(1.0,"end-1c")
+        filename=tempfile.mktemp('.txt')
+        open(filename,'w').write(q)
+        os.startfile(filename,'print')
 
     def welcome(self):
         self.textarea.delete(1.0,END)
@@ -502,7 +509,7 @@ class Bill_App:
             self.ComboPrice.config(value=self.price_fold)
             self.ComboPrice.current(0)
             self.qty.set(1)
-
+# ======================================================  Function declaration Part End  =================================================
 if __name__ =='__main__':
     root=Tk()
     obj=Bill_App(root)
